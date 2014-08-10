@@ -4,5 +4,5 @@ apt-get -y install nodejs
 gem install jekyll
 
 cd /opt/jekyll
-jekyll serve -w --force_polling -b "" &
+jekyll serve -w --force_polling -b ""
 
