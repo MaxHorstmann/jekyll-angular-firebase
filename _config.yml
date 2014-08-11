@@ -6,6 +6,8 @@ baseurl: ""
 url: "http://yourdomain.com"
 twitter_username: jekyllrb
 github_username:  jekyll
+angular_version: 1.2.21
+
 
 # Build settings
 markdown: kramdown
