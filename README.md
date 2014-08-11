@@ -17,7 +17,10 @@ For this template, we're using AngularJS to implement all the business logic (wh
 * [Firebase](https://www.firebase.com) is a commercial real-time storage and synchronization service. Firebase
 is acting as the data store in the JAF stack.
 
-Furthermore, this template currently uses Bootstrap for UI stuff, which also requires jQuery. That's more 
+Note what's missing? **There's no backend code.** That's the whole point. All the "logic" lives in Angular, which runs client-side. All the data 
+plus the security model and some basic validation rules live in Firebase. 
+
+Note that the template currently uses Bootstrap for UI stuff, which again requires jQuery. That's more 
 optional though, they can easily be replaced with any other UI framework or no UI framework.
 
 
