@@ -8,6 +8,8 @@ twitter_username: jekyllrb
 github_username:  jekyll
 angular_version: 1.2.21
 bootstrap_version: 3.2.0
+firebase_version: 1.0.18
+angularfire_version: 0.8.0
 
 # Build settings
 markdown: kramdown
