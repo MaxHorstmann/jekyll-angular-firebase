@@ -4,6 +4,8 @@ layout: default
 
 <div class="home">
 
+  <h1 ng-repeat="foo in foos">$$$ foo $$$</h1>
+
   <h1>Posts</h1>
 
   <ul class="posts">
@@ -15,6 +17,5 @@ layout: default
     {% endfor %}
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
