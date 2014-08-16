@@ -4,13 +4,13 @@ email: your-email@domain.com
 description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
 baseurl: "/jekyll-angular-firebase" 
 url: "http://yourdomain.com"
-firebase_url: "https://jaf.firebaseio.com/"
-twitter_username: jekyllrb
-github_username:  jekyll
 angular_version: 1.2.21
 bootstrap_version: 3.2.0
+jquery_version: 1.11.1
 firebase_version: 1.0.18
 angularfire_version: 0.8.0
+firebase_url: "https://jaf.firebaseio.com/"
+
 
 # Build settings
 markdown: kramdown
