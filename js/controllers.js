@@ -9,5 +9,7 @@ jafApp.controller('jafController', ["$scope", "$firebase", function ($scope, $fi
 	var firebase_url = document.getElementById('data-firebase-url').getAttribute('data-firebase-url');
 	var sync = $firebase(new Firebase(firebase_url));
 
-  	$scope.foos = sync.$asObject();
+  	var syncObject = sync.$asObject();
+  	syncObject.$bindTo($scope, "data");
+
 }]);
