@@ -10,15 +10,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">{{ site.title }}</a>
+      <a class="navbar-brand" href="{{ site.baseurl }}">{{ site.title }}</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-
-        {% for page in site.pages %}
-          {% if page.title %}<li class="active"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+        {% for sitePage in site.pages %}
+          {% if sitePage.title %}<li {% if (page.title == sitePage.title) %}class="active"{% endif %}><a href="{{ sitePage.url | prepend: site.baseurl }}">{{ sitePage.title }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>     
