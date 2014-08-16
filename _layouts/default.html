@@ -5,15 +5,17 @@
 
     <body ng-controller="jafController">
 
-    {% include header.html %}
+        <div id="data-firebase-url" data-firebase-url="{{ site.firebase_url }}" />
 
-    <div class="page-content">
-      <div class="wrap">
-      {{ content }}
-      </div>
-    </div>
+        {% include header.html %}
 
-    {% include footer.html %}
+        <div class="page-content">
+          <div class="wrap">
+          {{ content }}
+          </div>
+        </div>
+
+        {% include footer.html %}
 
     </body>
 </html>

@@ -1,9 +1,13 @@
-var jafApp = angular.module('jafApp', [],
+var jafApp = angular.module('jafApp', ['firebase'],
 	function($interpolateProvider) {
 	    $interpolateProvider.startSymbol('[[{').endSymbol('}]]');
 	});
 
 
-jafApp.controller('jafController', function ($scope) {
-  $scope.foos = ['foo', 'bar', 'foobar'];
-});
+jafApp.controller('jafController', ["$scope", "$firebase", function ($scope, $firebase) {
+
+	var firebase_url = document.getElementById('data-firebase-url').getAttribute('data-firebase-url');
+	var sync = $firebase(new Firebase(firebase_url));
+
+  	$scope.foos = sync.$asObject();
+}]);
