@@ -6,17 +6,23 @@ permalink: /customers/
 
 <div class="home">
 
-  <input type="text" ng-model="data.foo" ></input>    
+  <h1>These are all our customers<h1>
 
-    <!--
-      <ul class="posts">
-        {% for post in site.posts %}
-          <li>
-            <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    -->
+  <table class="table table-hover">
+    <thead>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Action</th>
+    </thead>
+    <tbody ng-repeat="customer in data.customers">
+      <td>[[{ customer.id }]]</td>
+      <td>[[{ customer.name }]]</td>
+      <td class="glyphicon glyphicon-remove" ng-click="removeCustomer(customer.id)"></td>
+    </tbody>
+  </table>
+
+  <button type="submit" class="btn btn-primary" ng-click="addCustomer()">Add</button>
+
+
 
 </div>
