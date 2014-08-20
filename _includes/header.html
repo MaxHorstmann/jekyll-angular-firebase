@@ -15,7 +15,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav"> 
         {% assign sorted_pages = site.pages | sort:"title" %}
         {% for sitePage in sorted_pages %}
           {% if sitePage.title %}<li {% if (page.title == sitePage.title) %}class="active"{% endif %}><a href="{{ sitePage.url | prepend: site.baseurl }}">{{ sitePage.title }}</a></li>
