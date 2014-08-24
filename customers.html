@@ -8,18 +8,18 @@ permalink: /customers/
 
   <h1>These are all our customers<h1>
 
-  <button type="submit" class="btn btn-primary" ng-click="addCustomer()">Add</button>
+  <button ng-show="user.email" type="submit" class="btn btn-primary" ng-click="addCustomer()">Add</button>
 
   <table class="table table-hover">
     <thead>
       <th>Id</th>
       <th>Name</th>
-      <th>Action</th>
+      <th ng-show="user.email">Action</th>
     </thead>
     <tbody ng-repeat="customer in customers">
       <td>[[{ customer.id }]]</td>
       <td>[[{ customer.name }]]</td>
-      <td class="glyphicon glyphicon-remove" ng-click="removeCustomer(customer.id)"></td>
+      <td ng-show="user.email" class="glyphicon glyphicon-remove" ng-click="removeCustomer(customer.id)"></td>
     </tbody>
   </table>
 
