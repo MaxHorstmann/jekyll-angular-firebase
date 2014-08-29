@@ -8,18 +8,26 @@ permalink: /customers/
 
   <h1>These are all our customers<h1>
 
-  <button ng-show="user.email" type="submit" class="btn btn-primary" ng-click="addCustomer()">Add</button>
 
   <table class="table table-hover">
     <thead>
-      <th>Id</th>
-      <th>Name</th>
-      <th ng-show="user.email">Action</th>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th ng-show="user.email">Action</th>
+      </tr>
     </thead>
-    <tbody ng-repeat="customer in customers">
-      <td>[[{ customer.id }]]</td>
-      <td>[[{ customer.name }]]</td>
-      <td ng-show="user.email" class="glyphicon glyphicon-remove" ng-click="removeCustomer(customer.id)"></td>
+    <tbody>
+      <tr ng-repeat="customer in customers">
+        <td>[[{ customer.id }]]</td>
+        <td>[[{ customer.name }]]</td>
+        <td ng-show="user.email" class="glyphicon glyphicon-remove" ng-click="removeCustomer(customer.id)"></td>
+      </tr>
+      <tr ng-show="user.email">
+        <td style="font-style: italic">new</td>
+        <td><input type="text" ng-model="newCustomer"></input></td>
+        <td><button class="btn btn-primary" ng-click="addCustomer()">add</button></td>
+      </tr>
     </tbody>
   </table>
 

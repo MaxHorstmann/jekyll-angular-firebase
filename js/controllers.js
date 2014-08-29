@@ -37,11 +37,12 @@ jafApp.controller('jafController', ["$scope", "$firebase", function ($scope, $fi
   	var syncObject = sync.$asArray();
   	//syncObject.$bindTo($scope, "customers");
   	$scope.customers = syncObject;
+    $scope.newCustomer = '';
 
 
   	$scope.addCustomer = function() {  		
-  		//if (!$scope.data.customers) $scope.data.customers = [];
-  		$scope.customers.$add({ id: Math.floor((Math.random() * 100) + 1), name: 'john' });
+  		$scope.customers.$add({ id: Math.floor((Math.random() * 100) + 1), name: $scope.newCustomer });
+      $scope.newCustomer = '';
   	};
 
   	$scope.removeCustomer = function(id) {
