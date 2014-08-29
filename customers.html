@@ -24,9 +24,9 @@ permalink: /customers/
         <td ng-show="user.email" class="glyphicon glyphicon-remove" ng-click="removeCustomer(customer.id)"></td>
       </tr>
       <tr ng-show="user.email">
-        <td style="font-style: italic">new</td>
-        <td><input type="text" ng-model="newCustomer"></input></td>
-        <td><button class="btn btn-primary" ng-click="addCustomer()">add</button></td>
+        <td></td>
+        <td><input type="text" ng-model="newCustomer" placeholder="add new..."></input></td>
+        <td><button class="btn btn-primary" ng-click="addCustomer()" ng-show="newCustomer">add</button></td>
       </tr>
     </tbody>
   </table>
