@@ -9,6 +9,7 @@ jafApp.controller('jafController', ["$scope", "$firebase", function ($scope, $fi
   	var firebase_url = document.getElementById('data-firebase-url').getAttribute('data-firebase-url');
 
     var firebaseRef = new Firebase(firebase_url);
+    var firebaseCustomersRef = new Firebase(firebase_url + '/customers');
 
     $scope.user = {};
     
@@ -32,7 +33,7 @@ jafApp.controller('jafController', ["$scope", "$firebase", function ($scope, $fi
     };
 
 
-  	var sync = $firebase(firebaseRef);
+  	var sync = $firebase(firebaseCustomersRef);
 
   	var syncObject = sync.$asArray();
   	//syncObject.$bindTo($scope, "customers");
