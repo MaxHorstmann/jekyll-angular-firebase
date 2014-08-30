@@ -11,6 +11,7 @@ jafApp.controller('jafController', ["$scope", "$firebase", function ($scope, $fi
     var firebaseRef = new Firebase(firebase_url);
 
     $scope.user = {};
+    $scope.filter = '';
     
     var firebaseAuthClient = new FirebaseSimpleLogin(firebaseRef, function(error, user) {
       if (error) {
