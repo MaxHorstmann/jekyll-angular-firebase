@@ -9,7 +9,6 @@ jafApp.controller('jafController', ["$scope", "$firebase", function ($scope, $fi
   	var firebase_url = document.getElementById('data-firebase-url').getAttribute('data-firebase-url');
 
     var firebaseRef = new Firebase(firebase_url);
-    var firebaseCustomersRef = new Firebase(firebase_url + '/customers');
 
     $scope.user = {};
     
@@ -33,17 +32,19 @@ jafApp.controller('jafController', ["$scope", "$firebase", function ($scope, $fi
     };
 
 
-  	var sync = $firebase(firebaseCustomersRef);
-
-  	var syncObject = sync.$asArray();
-  	//syncObject.$bindTo($scope, "customers");
-  	$scope.customers = syncObject;
+  	$scope.customers = $firebase(new Firebase(firebase_url + '/customers')).$asArray();
     $scope.newCustomer = '';
 
-
+    var firebaseCustomerIdSequenceRef = new Firebase(firebase_url + '/customerIdSequence');
   	$scope.addCustomer = function() {  		
-  		$scope.customers.$add({ id: Math.floor((Math.random() * 100) + 1), name: $scope.newCustomer });
-      $scope.newCustomer = '';
+      firebaseCustomerIdSequenceRef.transaction(function(id) {
+        return id+1;
+      }, function(error, committed, snapshot) {
+        if (committed) {
+          $scope.customers.$add({ id: snapshot.val(), name: $scope.newCustomer });
+          $scope.newCustomer = '';
+        }
+      });
   	};
 
   	$scope.removeCustomer = function(id) {
