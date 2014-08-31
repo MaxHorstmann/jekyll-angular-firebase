@@ -4,7 +4,7 @@ var jafApp = angular.module('jafApp', ['firebase'],
 	});
 
 
-jafApp.controller('jafController', ["$scope", "$firebase", function ($scope, $firebase) {
+jafApp.controller('customersController', ["$scope", "$firebase", function ($scope, $firebase) {
 
   	var firebase_url = document.getElementById('data-firebase-url').getAttribute('data-firebase-url');
 
