@@ -4,8 +4,11 @@ title: Notes
 permalink: /notes/
 ---
 
-<div class="home">
+<script src="{{ "/js/notes.js" | prepend: site.baseurl }}"></script>
 
-  <input type="text" ng-model="data.foo" ></input>    
+<div class="home" ng-controller="notesController">
+
+  <h1>Notes ([[{ notes.length }]])<h1>
+
 
 </div>
