@@ -7,12 +7,9 @@ var jafApp = angular.module('jafApp', ['firebase'],
 jafApp.controller('customersController', ["$scope", "$firebase", function ($scope, $firebase) {
 
   	var firebase_url = document.getElementById('data-firebase-url').getAttribute('data-firebase-url');
-
     var firebaseRef = new Firebase(firebase_url);
 
-    $scope.user = {};
-    $scope.filter = '';
-    
+    $scope.user = {};    
     var firebaseAuthClient = new FirebaseSimpleLogin(firebaseRef, function(error, user) {
       if (error) {
         alert(error);
@@ -32,6 +29,10 @@ jafApp.controller('customersController', ["$scope", "$firebase", function ($scop
       firebaseAuthClient.logout();;
     };
 
+
+    // CUSTOMERS specific stuff
+
+    $scope.filter = '';
 
   	$scope.customers = $firebase(new Firebase(firebase_url + '/customers')).$asArray();
     $scope.newCustomer = '';
