@@ -4,7 +4,6 @@ jafApp.controller('customersController', ["$scope", "$firebase", 'firebaseConnec
     // subscript to user, only show write UI if authenticated
     $scope.$watch(function() { return firebaseConnection.user; }, function(user) {
       $scope.user = user;
-      $scope.$apply();
     });
 
     $scope.filter = '';

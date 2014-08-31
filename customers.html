@@ -4,7 +4,9 @@ title: Customers
 permalink: /customers/
 ---
 
-<div class="home">
+<script src="{{ "/js/customers.js" | prepend: site.baseurl }}"></script>
+
+<div class="home" ng-controller="customersController">
 
   <h1>Customers ([[{ customers.length }]])<h1>
 
