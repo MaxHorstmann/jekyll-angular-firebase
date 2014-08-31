@@ -8,7 +8,7 @@ permalink: /notes/
 
 <div class="home" ng-controller="notesController">
 
-  <h1>Notes ([[{ notes.length }]])<h1>
+  <h3>Notes ([[{ notes.length }]])</h3>
 
   <div ng-repeat="note in notes" style="border: solid; width:200px; height: 200px; background-color: lightblue; margin: 20px; padding: 10px">
   	[[{ note.text }]]
@@ -16,7 +16,7 @@ permalink: /notes/
   </div>
 
   <div ng-show="user.email" style="border: solid; width:200px; height: 200px; background-color: lightgray; margin: 20px; padding: 10px">
-  	<textarea rows="3" cols="10" type="text" placeholder="new note" ng-model="newNote"></textarea>
+  	<textarea rows="5" cols="25" type="text" placeholder="new note" ng-model="newNote"></textarea>
   	<button class="btn btn-primary" ng-click="addNote()">+</button>
   </div>
 
