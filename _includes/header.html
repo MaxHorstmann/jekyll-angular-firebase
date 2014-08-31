@@ -22,7 +22,7 @@
           {% endif %}
         {% endfor %}
       </ul>     
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" ng-controller="authController">
         <li><a href="#">[[{ user.email }]]</a></li>
         <li><a href="" ng-click="login()" ng-show="!user.email">Log in</a></li>
         <li><a href="" ng-click="logout()" ng-show="user.email">Log out</a></li>

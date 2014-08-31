@@ -3,14 +3,15 @@ var jafApp = angular.module('jafApp', ['firebase'],
 	    $interpolateProvider.startSymbol('[[{').endSymbol('}]]');
 	});
 
-
-jafApp.controller('customersController', ["$scope", "$firebase", function ($scope, $firebase) {
-
-  	var firebase_url = document.getElementById('data-firebase-url').getAttribute('data-firebase-url');
+jafApp.factory('firebaseConnection', ['$firebase', function($firebase) {
+    var firebase_url = document.getElementById('data-firebase-url').getAttribute('data-firebase-url');
     var firebaseRef = new Firebase(firebase_url);
+    return { firebase_url : firebase_url, firebaseRef : firebaseRef};
+}]);
 
+jafApp.controller('authController', ['$scope', 'firebaseConnection', function($scope, firebaseConnection) {
     $scope.user = {};    
-    var firebaseAuthClient = new FirebaseSimpleLogin(firebaseRef, function(error, user) {
+    var firebaseAuthClient = new FirebaseSimpleLogin(firebaseConnection.firebaseRef, function(error, user) {
       if (error) {
         alert(error);
       } else if (user) {
@@ -28,16 +29,20 @@ jafApp.controller('customersController', ["$scope", "$firebase", function ($scop
     $scope.logout = function() {
       firebaseAuthClient.logout();;
     };
+}]);
+
+jafApp.controller('customersController', ["$scope", "$firebase", 'firebaseConnection',
+  function ($scope, $firebase, firebaseConnection) {
 
 
     // CUSTOMERS specific stuff
 
     $scope.filter = '';
 
-  	$scope.customers = $firebase(new Firebase(firebase_url + '/customers')).$asArray();
+  	$scope.customers = $firebase(new Firebase(firebaseConnection.firebase_url + '/customers')).$asArray();
     $scope.newCustomer = '';
 
-    var firebaseCustomerIdSequenceRef = new Firebase(firebase_url + '/customerIdSequence');
+    var firebaseCustomerIdSequenceRef = new Firebase(firebaseConnection.firebase_url + '/customerIdSequence');
   	$scope.addCustomer = function() {  		
       firebaseCustomerIdSequenceRef.transaction(function(id) {
         return id+1;
