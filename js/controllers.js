@@ -6,7 +6,11 @@ var jafApp = angular.module('jafApp', ['firebase'],
 jafApp.factory('firebaseConnection', ['$firebase', function($firebase) {
     var firebase_url = document.getElementById('data-firebase-url').getAttribute('data-firebase-url');
     var firebaseRef = new Firebase(firebase_url);
-    return { firebase_url : firebase_url, firebaseRef : firebaseRef};
+    return { 
+      firebase_url : firebase_url, 
+      firebaseRef : firebaseRef,
+      user : {}
+    };
 }]);
 
 jafApp.controller('authController', ['$scope', 'firebaseConnection', function($scope, firebaseConnection) {
@@ -15,10 +19,11 @@ jafApp.controller('authController', ['$scope', 'firebaseConnection', function($s
       if (error) {
         alert(error);
       } else if (user) {
-        $scope.user = user;
+        $scope.user = user;        
       } else {
         $scope.user = { };
       }
+      firebaseConnection.user = user;
       $scope.$apply();
     });
 
@@ -34,8 +39,11 @@ jafApp.controller('authController', ['$scope', 'firebaseConnection', function($s
 jafApp.controller('customersController', ["$scope", "$firebase", 'firebaseConnection',
   function ($scope, $firebase, firebaseConnection) {
 
-
-    // CUSTOMERS specific stuff
+    // subscript to user, only show write UI if authenticated
+    $scope.$watch(function() { return firebaseConnection.user; }, function(user) {
+      $scope.user = user;
+      $scope.$apply();
+    });
 
     $scope.filter = '';
 
