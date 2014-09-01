@@ -17,8 +17,14 @@ jafApp.controller('customersController', ["$scope", "$firebase", 'firebaseConnec
         return id+1;
       }, function(error, committed, snapshot) {
         if (committed) {
-          $scope.customers.$add({ id: snapshot.val(), name: $scope.newCustomer });
-          $scope.newCustomer = '';
+          $scope.customers.$add({ 
+            id: snapshot.val(), 
+            name: $scope.newCustomerName, 
+            phone: $scope.newCustomerPhone, 
+            email: $scope.newCustomerEmail });
+          $scope.newCustomerName = '';
+          $scope.newCustomerPhone = '';
+          $scope.newCustomerEmail = '';          
         }
       });
   	};

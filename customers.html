@@ -16,6 +16,8 @@ permalink: /customers/
       <tr>
         <th>Id</th>
         <th>Name &nbsp;&nbsp;<input type="text" placeholder="filter" ng-model="filter"></input></th>
+        <th>Email</th>
+        <th>Phone Number</th>
         <th ng-show="user.email">Action</th>
       </tr>
     </thead>
@@ -23,12 +25,16 @@ permalink: /customers/
       <tr ng-repeat="customer in customers | filter:filter">
         <td>[[{ customer.id }]]</td>
         <td>[[{ customer.name }]]</td>
+        <td>[[{ customer.email }]]</td>
+        <td>[[{ customer.phone }]]</td>
         <td ng-show="user.email" class="glyphicon glyphicon-remove" ng-click="removeCustomer(customer.id)"></td>
       </tr>
       <tr ng-show="user.email">
         <td></td>
-        <td><input type="text" ng-model="newCustomer" placeholder="add new..."></input></td>
-        <td><button class="btn btn-primary" ng-click="addCustomer()" ng-show="newCustomer">add</button></td>
+        <td><input type="text" ng-model="newCustomerName" placeholder="add new..."></input></td>
+        <td><input type="text" ng-model="newCustomerEmail" ng-show="newCustomerName" placeholder="add new..."></input></td>
+        <td><input type="text" ng-model="newCustomerPhone" ng-show="newCustomerName" placeholder="add new..."></input></td>
+        <td><button class="btn btn-primary" ng-click="addCustomer()" ng-show="newCustomerName && newCustomerEmail && newCustomerPhone">add</button></td>
       </tr>
     </tbody>
   </table>

@@ -5,8 +5,9 @@ body {
 .note {
 	border: solid;
 	border-width: 1px; 
-	width:200px; 
-	height: 200px; 
+	width:150px; 
+	height: 150px; 
+	max-height: 150px;
 	background-color: lightblue; 
 	margin: 20px; 
 	padding: 10px;
@@ -20,7 +21,7 @@ body {
 }
 
 .new-note-textarea {
-	height: 80%;
+	height: 70%;
 	width: 100%;
 	padding: 1%;
 	border: none;
