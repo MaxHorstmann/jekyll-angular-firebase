@@ -13,12 +13,12 @@ permalink: /notes/
   	<div>
 	  <div class="note" ng-repeat="note in notes">
 	  	[[{ note.text }]]
-	  	<div ng-show="user.email" class="glyphicon glyphicon-remove" ng-click="removeNote(note.id)"></div>
+	  	<div ng-show="user.email" class="removeNote glyphicon glyphicon-remove" ng-click="removeNote(note.id)"></div>
 	  </div>
 
 	  <div class="note new-note" ng-show="user.email">
-	  	<textarea rows="5" cols="25" type="text" placeholder="new note" ng-model="newNote"></textarea>
-	  	<button class="btn btn-primary" ng-click="addNote()">+</button>
+	  	<textarea class="new-note-textarea" type="text" placeholder="new note" ng-model="newNote"></textarea>
+	  	<button class="btn btn-primary" ng-click="addNote()">Add</button>
 	  </div>
 	</div>
 </div>

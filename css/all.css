@@ -3,7 +3,8 @@ body {
 }
 
 .note {
-	border: solid; 
+	border: solid;
+	border-width: 1px; 
 	width:200px; 
 	height: 200px; 
 	background-color: lightblue; 
@@ -11,8 +12,27 @@ body {
 	padding: 10px;
 	display: inline-block;
 	float: left;
+	position: relative;
 }
 
 .new-note {
 	background-color: lightgray; 
+}
+
+.new-note-textarea {
+	height: 80%;
+	width: 100%;
+	padding: 1%;
+	border: none;
+}
+
+.glyphicon-remove {
+	color: red;
+}
+
+.removeNote {
+	float: right;
+	position: absolute;
+	top: 5px;
+	right: 5px;
 }
