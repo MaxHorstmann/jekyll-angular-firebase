@@ -2,18 +2,15 @@
 layout: default
 ---
 
-<div class="home">
+<div class="home jumbotron">
+	<div class="container">
 
-  <h1>Announcements</h1>
-
-    <ul class="posts">
-      {% for post in site.posts %}
-        <li>
-          <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  
-
+	  <h1>Welcome</h1>
+	  <h2>
+	  	Hey, thanks for checking this out. This this a very simple demo app built using
+	  	<a href="http://jekyllrb.com">Jekyll</a>, <a href="https://angularjs.org">AngularJS</a> and 
+	  	<a href="https://www.firebase.com">Firebase</a>, hosted on <a href="https://pages.github.com">GitHub pages</a> and not a single line of backend code.
+	  </h2>
+	  <h3>Read my blog post to learn more. Source code on <a href="https://github.com/MaxHorstmann/jekyll-angular-firebase">GitHub</a>.</h3>
+	</div>
 </div>
