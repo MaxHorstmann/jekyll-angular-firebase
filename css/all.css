@@ -1,5 +1,5 @@
 body {
-  background: #FDF5E6;
+  background: #FFFFF0;
 }
 
 .note {
@@ -8,14 +8,11 @@ body {
 	height: 200px; 
 	background-color: lightblue; 
 	margin: 20px; 
-	padding: 10px
+	padding: 10px;
+	display: inline-block;
+	float: left;
 }
 
 .new-note {
-	border: solid; 
-	width:200px; 
-	height: 200px; 
-	background-color: lightblue; 
-	margin: 20px; 
-	padding: 10px
+	background-color: lightgray; 
 }
