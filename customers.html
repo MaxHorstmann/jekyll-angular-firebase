@@ -27,7 +27,9 @@ permalink: /customers/
         <td>[[{ customer.name }]]</td>
         <td>[[{ customer.email }]]</td>
         <td>[[{ customer.phone }]]</td>
-        <td ng-show="user.email" class="glyphicon glyphicon-remove" ng-click="removeCustomer(customer.id)"></td>
+        <td ng-show="user.email" ng-click="removeCustomer(customer.id)">
+          <div class="glyphicon glyphicon-remove" title="DELETE"></div>
+        </td>
       </tr>
       <tr ng-show="user.email">
         <td></td>
