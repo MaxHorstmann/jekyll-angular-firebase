@@ -2,7 +2,7 @@ jekyll-angular-firebase
 =======================
 
 Base template for a web app using the Jekyll-Angular-Firebase (JAF) stack.
-
+test
 Click [here](http://maxhorstmann.github.io/jekyll-angular-firebase) to see it in action.
 
 So, what's the JAF stack?
